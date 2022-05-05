@@ -1,0 +1,123 @@
+import 'package:flutter/material.dart';
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+/*BoxDecoration myDecoration = const BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.all(
+      Radius.circular(40),
+    ));*/
+
+BoxDecoration myDecoration (String link, Color color, double radius) {
+  return BoxDecoration(
+    image: DecorationImage(
+           image: NetworkImage(link)),
+    color: color,
+    borderRadius: BorderRadius.all(
+      Radius.circular(radius),
+    ));
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: MyWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: myDecoration('https://upload.wikimedia.org/wikipedia/commons/6/6f/Ariana_Grande_-_Sweetener_%28rotated_180%C2%B0%29.svg',Colors.blue, 10),
+        width: 500,
+        height: 650,
+        child: Column(children: [
+         const SizedBox(height: 25),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [retangulo()]),
+         const SizedBox(height: 20),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [quadrado(), quadrado()]),
+         const SizedBox(height: 20),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [retangulo()]),
+         const SizedBox(height: 45),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [quadrado(), quadrado(), quadrado(), quadrado()]),
+         const SizedBox(height: 40),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [quadradodois()]),
+        ]));
+  }
+
+  retangulo() {
+    return Container(
+      decoration: myDecoration('https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/c/3/3/a/581371496756036.jpg',Colors.white, 10),
+      width: 200,
+      height: 80,
+    );
+  }
+
+  quadrado() {
+    return Container(
+      decoration: myDecoration('https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/c/3/3/a/581371496756036.jpg',Colors.white, 10),
+      width: 80,
+      height: 80,
+    );
+  }
+
+  quadradodois() {
+    return Container(
+        decoration: myDecoration('https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/c/3/3/a/581371496756036.jpg',Colors.white, 10),
+        width: 180,
+        height: 150,
+        child: Column(children: [
+        const  SizedBox(height: 10),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            Container(
+                width: 60,
+                height: 60,
+                decoration: myDecoration('https://cherrypochome.files.wordpress.com/2019/07/1_wflkrxjcnxrupd9zf1viaq402x-1.jpeg',Colors.pink, 10),
+                ),
+            Container(
+                width: 60,
+                height: 60,
+                decoration: myDecoration('https://cherrypochome.files.wordpress.com/2019/07/1_wflkrxjcnxrupd9zf1viaq402x-1.jpeg',Colors.orange, 10),
+                ),
+          ]),
+       const  SizedBox(height: 10),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            Container(
+                width: 60,
+                height: 60,
+                decoration: myDecoration('https://cherrypochome.files.wordpress.com/2019/07/1_wflkrxjcnxrupd9zf1viaq402x-1.jpeg',Colors.purple, 10),
+                ),
+            Container(
+                width: 60,
+                height: 60,
+                decoration: myDecoration('https://cherrypochome.files.wordpress.com/2019/07/1_wflkrxjcnxrupd9zf1viaq402x-1.jpeg',Colors.green, 10),
+                ),
+          ]),
+        ]));
+  }
+}
